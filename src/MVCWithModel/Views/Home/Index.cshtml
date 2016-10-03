@@ -1,4 +1,12 @@
-﻿@model MVCWithModel.Models.Character
+﻿@model MVCWithModel.Models.CharacterRepo
 
 
-<h2>The name is: @Model.Name</h2>
+<h2>The characters are:</h2>
+<ul>
+    @foreach (var item in Model.CharacterList)
+    {
+    <li>
+        @item.Name
+    </li>
+    }
+</ul>

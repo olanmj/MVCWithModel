@@ -9,11 +9,15 @@ namespace MVCWithModel.Controllers
 {
     public class HomeController : Controller
     {
+        CharacterRepo characters = new CharacterRepo();
         public IActionResult Index()
         {
             ViewData["Title"] = "Home";
             Character person = new Character() { Name = "Some Name" };
-            return View(person);
+            characters.CharacterList.Add(person);
+            person = new Character() { Name = "Another Name" };
+            characters.CharacterList.Add(person);
+            return View(characters);
         }
 
         public IActionResult About()
