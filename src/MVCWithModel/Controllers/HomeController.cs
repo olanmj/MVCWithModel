@@ -9,7 +9,7 @@ namespace MVCWithModel.Controllers
 {
     public class HomeController : Controller
     {
-        CharacterRepo characters = new CharacterRepo();
+        static CharacterRepo characters = new CharacterRepo();
         public IActionResult Index()
         {
             ViewData["Title"] = "Home";
@@ -18,6 +18,18 @@ namespace MVCWithModel.Controllers
             person = new Character() { Name = "Another Name" };
             characters.CharacterList.Add(person);
             return View(characters);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Character newCharacter)
+        {
+            characters.CharacterList.Add(newCharacter);
+            return RedirectToAction("Index");
         }
 
         public IActionResult About()
