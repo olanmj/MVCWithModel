@@ -28,8 +28,12 @@ namespace MVCWithModel.Controllers
         [HttpPost]
         public IActionResult Create(Character newCharacter)
         {
-            characters.CharacterList.Add(newCharacter);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                characters.CharacterList.Add(newCharacter);
+                return RedirectToAction("Index");
+            }
+            return View(newCharacter);
         }
 
         public IActionResult About()
