@@ -13,10 +13,10 @@ namespace MVCWithModel.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Home";
-            Character person = new Character() { Name = "Some Name" };
-            characters.CharacterList.Add(person);
-            person = new Character() { Name = "Another Name" };
-            characters.CharacterList.Add(person);
+            //Character person = new Character() { Name = "Some Name" };
+            //characters.CharacterList.Add(person);
+            //person = new Character() { Name = "Another Name" };
+            //characters.CharacterList.Add(person);
             return View(characters);
         }
 
