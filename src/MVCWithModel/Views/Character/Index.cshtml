@@ -2,14 +2,21 @@
 
 
 <h2>The characters are:</h2>
-<ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
     @foreach (var item in Model)
     {
-        <li>
-            @item.Name - @item.Role
-        </li>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Role</td>
+        </tr>
     }
-</ul>
+</table>
 <div>
     <a asp-action="Create" class="btn btn-success">Add Another</a>
 </div>
