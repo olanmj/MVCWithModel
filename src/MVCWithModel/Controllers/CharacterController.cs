@@ -32,9 +32,13 @@ namespace MVCWithModel.Controllers
         [HttpPost]
         public IActionResult Create(Character character)
         {
-            _context.Characters.Add(character);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Characters.Add(character);
+                _context.SaveChanges();
+                return RedirectToAction("Index"); 
+            }
+            return View(character);
         }
     }
 }
