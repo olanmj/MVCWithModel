@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MVCWithModel.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVCWithModel
 {
@@ -35,7 +37,8 @@ namespace MVCWithModel
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=CharacterDb;Trusted_Connection=True;";
+            services.AddDbContext<CharacterContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 

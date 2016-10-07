@@ -1,0 +1,16 @@
+﻿@model List<MVCWithModel.Models.Character>
+
+
+<h2>The characters are:</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Name - @item.Role
+        </li>
+    }
+</ul>
+<div>
+    <a asp-action="Create" class="btn btn-success">Add Another</a>
+</div>
+
