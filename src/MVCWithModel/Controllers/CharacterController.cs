@@ -20,7 +20,7 @@ namespace MVCWithModel.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var model = _context.Characters.ToList();
+            var model = _context.Characters.OrderBy(c => c.Name).ToList();
             return View(model);
         }
 
