@@ -37,8 +37,7 @@ namespace MVCWithModel
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=CharacterDb;Trusted_Connection=True;";
-            services.AddDbContext<CharacterContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<CharacterContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
         }
 
